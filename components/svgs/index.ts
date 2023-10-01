@@ -1,0 +1,9 @@
+export { default as Logo } from './Logo.svg';
+export { default as Like } from './Like.svg';
+export { default as Like2 } from './Like2.svg';
+export { default as Share } from './Share.svg';
+export { default as Compare } from './Compare.svg';
+export { default as User } from './User.svg';
+export { default as Search } from './Search.svg';
+export { default as Cart } from './Cart.svg';
+export { default as Menu } from './Menu.svg';
