@@ -2,14 +2,14 @@
 import Poducts from '@/components/products/Products'
 import Range from '@/components/ui/Range'
 import Header from '@/components/Header/Header'
-import Nav from '@/components/NavBar/Nav'
+
 import RoomsInspiration from '@/components/RoomsInspiration/RoomsInspiration'
+import Tiker from '@/components/Tiker/Tiker'
 
 
 export default function page() {
   return (
     <>
-    <Nav />
     <Header />
     <div className='px-1 my-16'>
       <div className='mb-12'>
@@ -25,6 +25,7 @@ export default function page() {
       </div>
       <Poducts />
       <RoomsInspiration />
+      <Tiker />
     </div>
     </>
   )

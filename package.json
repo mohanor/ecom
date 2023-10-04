@@ -10,12 +10,15 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.1.13",
+    "@uidotdev/usehooks": "^2.3.1",
     "axios": "^1.5.1",
     "class-variance-authority": "^0.7.0",
     "framer-motion": "^10.16.4",
+    "lodash": "^4.17.21",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "swiper": "^10.3.1",
     "tailwind-merge": "^1.14.0"
   },
   "devDependencies": {

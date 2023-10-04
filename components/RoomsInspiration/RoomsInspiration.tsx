@@ -1,10 +1,11 @@
-import React from 'react'
+
 import Button from '../ui/Button'
 import Image from 'next/image'
 
 import { twMerge as tw } from 'tailwind-merge'
 
-
+import Carousel from './Carousel'
+import Slider from './Slider'
 // import Radio from './Radio'
 
 type SlideProps = {
@@ -12,15 +13,16 @@ type SlideProps = {
     className?: string
 }
 
-function Slide({ src, className = '' }: SlideProps) {
+
+export function Slide({ src, className = '' }: SlideProps) {
     return (
-        <div className={tw('h-[480px] w-[350px] flex-shrink-0', className)}>
+        <div className={tw('relative w-full h-[85%]', className)}>
             <Image
                 src={src}
-                width={500}
-                height={500}
+                width={420}
+                height={300}
                 alt='room1'
-                className='h-full w-full object-cover'
+                className='h-full w-full object-cover user-select-none'
             />
         </div>
     )
@@ -29,29 +31,21 @@ function Slide({ src, className = '' }: SlideProps) {
 
 export default function RoomsInspiration() {
     return (
-        <div className='h-[2000px]'>
+        <div className=''>
 
-            <div className='grid grid-cols-12 bg-yellow-light-500 py-10'>
-                <div className='col-span-4 grid place-content-center'>
-                    <div className='pl-32'>
+            <div className='grid grid-cols-12 bg-yellow-light-500 py-10 gap-4'>
+                <div className='col-span-12 sm:col-span-4 grid place-content-center'>
+                    <div className='pl-2 lg:pl-16 2xl:pl-32'>
                         <div className='mb-8'>
-                            <h2 className='text-black-500 font-bold text-4xl max-w-xl mb-4'>50+ Beautiful rooms inspiration</h2>
-                            <p className='text-black-400 max-w-sm'>Our designer already made a lot of beautiful prototipe of rooms that inspire you</p>
+                            <h2 className='text-black-500 font-bold text-3xl sm:text-3xl lg:text-4xl max-w-xl mb-4'>50+ Beautiful rooms inspiration</h2>
+                            <p className='text-black-400 max-w-sm text-sm lg:text-base'>Our designer already made a lot of beautiful prototipe of rooms that inspire you</p>
                         </div>
-                        <Button size='lg' className='h-14 text-base'>Explore More</Button>
+                        <Button size='lg' className='h-14 text-sm sm:text-base'>Explore More</Button>
                     </div>
                 </div>
-                <div className='col-span-8'>
+                <div className='col-span-12 p-2 sm:p-0 sm:col-span-8'>
 
-                    <div className='flex gap-8'>
-                        <Slide src='/images/room1.jpg' className='h-[580px] w-[400px]' />
-                        <Slide  src='/images/room2.jpg'/>
-                        <Slide  src='/images/room2.jpg'/>
-                        <Slide  src='/images/room2.jpg'/>
-                        <Slide  src='/images/room2.jpg'/>
-                    </div>
-
-                    {/* <Radio /> */}
+                    <Slider />
 
                 </div>
 

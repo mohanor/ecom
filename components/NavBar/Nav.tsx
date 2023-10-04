@@ -26,16 +26,35 @@ function NavbarContainer({ children }: NavContainerProps) {
 
 function NavBarLinks() {
 
+  const items = [
+    {
+      name: 'Home',
+      href: '/'
+    },
+    {
+      name: 'About',
+      href: '/about'
+    },
+    {
+      name: 'Shop',
+      href: '/shop'
+    },
+    {
+      name: 'Contact',
+      href: '/contact'
+    }
+  ]
+
   return (
     <ul>
       {
-        ['Home', 'About', 'Products', 'Contact'].map((item: string) => (
+        items.map((item: any) => (
           <Link
-            key={item}
+            key={item.name}
             className='capitalize text-sm sm:text-md text-black-500 hover:text-black-300 ml-12 duration-300 ease-in-out'
-            href={`/${item.toLowerCase()}`}
+            href={item.href}
           >
-            {item}
+            {item.name}
           </Link>
         ))
       }
@@ -74,9 +93,9 @@ export default function Nav() {
   return (
     <NavbarContainer>
       <Brand />
-      { isMobile && <NavBarLinks /> }
+      {isMobile && <NavBarLinks />}
       <NavBarContent />
-      { !isMobile && <Dropdown /> }
+      {!isMobile && <Dropdown />}
     </NavbarContainer>
   );
 }

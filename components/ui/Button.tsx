@@ -1,6 +1,7 @@
 import { cva } from 'class-variance-authority'
+import Link from 'next/link'
 import React from 'react'
-import { twMerge as tw } from 'tailwind-merge'
+import { twMerge as tw, twMerge } from 'tailwind-merge'
 
 const buttonVariants = cva(
     'inline-flex items-center justify-center text-sm font-medium transition-colors capitalize',
@@ -40,4 +41,27 @@ export default function Button({ children, variant, size, className = '' }: Prop
         {children}
     </button>
   )
+}
+
+type PaginationButtonProps = {
+  index: number
+  href: string
+  page: number
+  perPage: number
+}
+
+export function PaginationButton({index, href, page, perPage}: PaginationButtonProps) {
+
+  const url = new URL(href, window.location.origin)
+
+  url.searchParams.set('page', String(page))
+  url.searchParams.set('per_page', String(perPage))
+  
+  return (
+    <Link
+      href={url.href}
+      className={twMerge(`bg-green-light-500 hover:bg-green-dark-500 text-white p-1`, (index === page) && 'bg-green-dark-500')}
+    >{page}</Link>
+  )
+
 }
