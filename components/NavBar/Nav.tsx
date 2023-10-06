@@ -9,6 +9,9 @@ import { User, Cart, Like2, Search } from '@/components/svgs'
 
 import Dropdown from './Dropdown'
 
+import ShoppingCart from '../Cart/ShoppingCart';
+
+
 type NavContainerProps = {
   children: React.ReactNode
 }
@@ -66,20 +69,12 @@ function NavBarLinks() {
 export function NavBarContent() {
 
   return (
-    <div className='flex items-center gap-8 text-xl'>
-      <button>
-        <User />
-      </button>
-      <button>
-        <Cart />
-      </button>
-      <button>
-        <Like2 />
-      </button>
-      <button>
-        <Search />
-      </button>
-    </div>
+    <ul className='flex items-center gap-8 text-xl'>
+      <li><button><User /></button></li>
+      <li><button><Cart /></button></li>
+      <li><button><Like2 /></button></li>
+      <li><button><Search /></button></li>
+    </ul>
   )
 }
 
@@ -91,11 +86,14 @@ export default function Nav() {
   const isMobile = useMediaQuery("only screen and (min-width : 760px)");
 
   return (
-    <NavbarContainer>
-      <Brand />
-      {isMobile && <NavBarLinks />}
-      <NavBarContent />
-      {!isMobile && <Dropdown />}
-    </NavbarContainer>
+    <>
+      <ShoppingCart />
+      <NavbarContainer>
+        <Brand />
+        {isMobile && <NavBarLinks />}
+        <NavBarContent />
+        {!isMobile && <Dropdown />}
+      </NavbarContainer>
+    </>
   );
 }

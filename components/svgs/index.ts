@@ -22,3 +22,5 @@ export { default as Delete } from './Delete.svg';
 export { default as Clock } from './Clock.svg';
 export { default as Location } from './Location.svg';
 export { default as Phone } from './Phone.svg';
+export { default as X } from './X.svg';
+export { default as XCart } from './XCart.svg';
