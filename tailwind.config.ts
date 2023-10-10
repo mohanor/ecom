@@ -19,6 +19,7 @@ const config: Config = {
         'xs': '400px',
         'mid': '660px',
         'clg': '1203px',
+        'spc': '930px',
       },
     },
     colors: {

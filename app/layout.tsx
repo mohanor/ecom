@@ -5,7 +5,7 @@ import Provider from './providers'
 
 import Nav from '@/components/NavBar/Nav'
 import Footer from '@/components/Footer/Footer'
-import QualityAssure from '@/components/QualityAssure/QualityAssure'
+
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'] })
 
@@ -28,7 +28,6 @@ export default function RootLayout({
         <Provider>
           <Nav />
           {children}
-          <QualityAssure />
           <Footer />
         </Provider>
       </body>

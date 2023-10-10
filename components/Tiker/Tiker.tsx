@@ -19,67 +19,9 @@ export default function Tiker() {
                     style={{ gridTemplateColumns: `repeat(${images.length }, minmax(100px, 1fr))` }}
                 >
 
-                        {
-                            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(
-                                (item) => {
+                       
 
-                                    // if (item % 3 == 0) return <div key={item} className='bg-red-500 h-full flex items-center justify-center col-span-2 row-span-2'>
-                                    //     {item}
-                                    // </div>
-
-                                    
-                                    if (item % 2 == 0) return <div key={item} className='bg-green-dark-500 row-span-1'>
-                                        {item}
-                                    </div>
-                                    
-                                    return <div key={item} className={`bg-red-500 col-span-2 row-span-2`}>
-                                        {item}
-                                    </div>
-                                }
-                            )
-                        }
-
-                        {/* {
-                            images.map((image, index) => (
-                                <div key={index} className='row-span-2 col-span-2 h-fit'>
-                                    <img
-                                        key={index}
-                                        src={image}
-                                        alt='image'
-                                        className={`w-full`}
-                                    />
-                                </div>
-                            ))
-                        } */}
-
-
-
-                    {/* {
-                        images.map((image, index) => {
-
-                            const img = new Image();
-                            img.src = image;
-
-                            const imgWidth = img.width;
-                            let cols = Math.ceil(imgWidth / 100);
-
-                            if (cols <= 1) cols = 2;
-
-                            return (
-
-                                <div key={index} className={twMerge(`row-span-1 flex items-end`)}>
-                                    <img
-                                        key={index}
-                                        src={image}
-                                        alt='image'
-                                        className={`w-full`}
-                                    />
-                                </div>
-                            )
-                        }
-
-                        )
-                    } */}
+                    
 
 
                 </div>

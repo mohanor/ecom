@@ -11,7 +11,7 @@ type ImageProps = {
 export default function Range({ src ="/images/image.jpg", name = 'Dining' }: ImageProps) {
   return (
     <div className='text-center'>
-      <div className='w-[300px] h-[400px]  rounded-lg overflow-hidden'>
+      <div className='w-full xs:w-[300px] h-[400px]  rounded-lg overflow-hidden'>
         <Image
           width={240}
           height={240}

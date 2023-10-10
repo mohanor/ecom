@@ -5,26 +5,19 @@ import axios from '@/api/axios'
 
 import { useEffect, useState } from "react";
 
-export default function ProductsList() {
+import { useFetch } from '@/hooks/useFetch'
 
-    const [products, setProducts] = useState([])
+import Skeleton from '@/components/ui/Skeleton'
+
+export default function ProductsList() {
 
     const [limit, setLimit] = useState(8)
 
-    useEffect(() => {
-        axios.get('/products', {
-            params: {
-                limit
-            }
-        })
-            .then(res => {
-                setProducts(res.data)
-                setLimit(prev => prev + 8)
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }, [])
+    const [products, loading, error] = useFetch('/products', {
+        params: {
+            limit
+        }
+    })
 
     return (
         <>

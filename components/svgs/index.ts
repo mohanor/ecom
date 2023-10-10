@@ -24,3 +24,8 @@ export { default as Location } from './Location.svg';
 export { default as Phone } from './Phone.svg';
 export { default as X } from './X.svg';
 export { default as XCart } from './XCart.svg';
+export { default as Star } from './Star.svg';
+
+export { default as FB } from './FB.svg';
+export { default as IN } from './IN.svg';
+export { default as TW } from './TW.svg';

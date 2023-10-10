@@ -10,6 +10,7 @@ import { User, Cart, Like2, Search } from '@/components/svgs'
 import Dropdown from './Dropdown'
 
 import ShoppingCart from '../Cart/ShoppingCart';
+import { useState } from 'react';
 
 
 type NavContainerProps = {
@@ -35,12 +36,12 @@ function NavBarLinks() {
       href: '/'
     },
     {
-      name: 'About',
-      href: '/about'
-    },
-    {
       name: 'Shop',
       href: '/shop'
+    },
+    {
+      name: 'Blog',
+      href: '/blog'
     },
     {
       name: 'Contact',
@@ -66,15 +67,37 @@ function NavBarLinks() {
 
 }
 
-export function NavBarContent() {
+type NavBarContentProps = {
+  setVisible: (param: boolean) => void
+}
+
+import Tooltip from '@/components/ui/Tooltip'
+import { AnimatePresence } from 'framer-motion';
+
+
+export function NavBarContent({ setVisible }: NavBarContentProps) {
 
   return (
-    <ul className='flex items-center gap-8 text-xl'>
-      <li><button><User /></button></li>
-      <li><button><Cart /></button></li>
-      <li><button><Like2 /></button></li>
-      <li><button><Search /></button></li>
-    </ul>
+    <div className='flex items-center gap-4 xs:gap-8 text-lg xs:text-xl'>
+
+      <Tooltip content='profile'>
+        <button className='outline-none'><User /></button>
+      </Tooltip>
+
+      <Tooltip content='cart'>
+        <button className='outline-none' onClick={() => setVisible(true)}>
+          <Cart />
+        </button>
+      </Tooltip>
+
+      <Tooltip content='like'>
+        <button className='outline-none'><Like2 /></button>
+      </Tooltip>
+
+      <Tooltip content='search'>
+        <button className='outline-none'><Search /></button>
+      </Tooltip>
+    </div>
   )
 }
 
@@ -84,14 +107,17 @@ export function NavBarContent() {
 export default function Nav() {
 
   const isMobile = useMediaQuery("only screen and (min-width : 760px)");
+  const [visible, setVisible] = useState(true)
 
   return (
     <>
-      <ShoppingCart />
+      <AnimatePresence>
+        {visible && <ShoppingCart visible={visible} setVisible={setVisible} />}
+      </AnimatePresence>
       <NavbarContainer>
         <Brand />
         {isMobile && <NavBarLinks />}
-        <NavBarContent />
+        <NavBarContent setVisible={setVisible} />
         {!isMobile && <Dropdown />}
       </NavbarContainer>
     </>

@@ -24,7 +24,7 @@ export default function home() {
       </div>
       <Poducts />
       <RoomsInspiration />
-      <Tiker />
+      {/* <Tiker /> */}
     </div>
     </>
   )
