@@ -12,7 +12,11 @@ type Props = {
 const Results = ({search}: Props) => {
 
   return (
-    <div className='absolute bg-red-500  w-full px-4 py-2 rounded-md'>{search}</div>
+    <div className='absolute bg-red-500  w-full px-4 py-2 rounded-md'>
+      
+    
+      {search}
+    </div>
   )
 
 }
@@ -21,11 +25,6 @@ export default function Search() {
   const [search, setSearch] = useState('')
 
   const debouncedSearchTerm = useDebounce(search, 300);
-  // useEffect(() => {
-
-  //   console.log('search', search)
-
-  // }, [debouncedSearchTerm])
 
 
   return (

@@ -51,7 +51,7 @@ export default function App() {
                         return (
                             <li key={page} aria-label="next page" className="">
                                 <button
-                                    className={`w-full h-full bg-[#F9F1E7] rounded-md font-light px-4 py-2 hover:scale-95 ${activePage === 10 && 'cursor-not-allowed'}`}
+                                    className={`w-full h-full bg-[#F9F1E7] rounded-md font-light text-xs xs:text-base px-2 py-1 xs:px-4 xs:py-2 hover:scale-95 ${activePage === 10 && 'cursor-not-allowed'}`}
                                     onClick={nextPage}
                                     disabled={activePage === 10}
                                 >
@@ -65,7 +65,7 @@ export default function App() {
                         return (
                             <li key={page} aria-label="previous page" className="">
                                 <button
-                                    className={`w-full h-full bg-[#F9F1E7] rounded-md font-light px-4 py-2 hover:scale-95 ${activePage === 1 && 'cursor-not-allowed'}`}
+                                    className={`w-full h-full bg-[#F9F1E7] rounded-md font-light text-xs xs:text-base px-2 py-1 xs:px-4 xs:py-2 hover:scale-95 ${activePage === 1 && 'cursor-not-allowed'}`}
                                     onClick={prevPage}
                                     disabled={activePage === 1}
                                 >
@@ -82,7 +82,7 @@ export default function App() {
                     }
 
                     return (
-                        <li key={page} aria-label={`page ${page}`} className="w-10 h-10">
+                        <li key={page} aria-label={`page ${page}`} className="w-5 h-5 xs:w-10 xs:h-10 text-xs xs:text-base">
                             <button
                                 className={twMerge(
                                     "w-full h-full bg-yellow-dark-500 hover:bg-green-dark-500 text-black-500 rounded-md",

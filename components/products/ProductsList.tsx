@@ -1,4 +1,4 @@
-'use client';
+// 'use client';
 
 import Card from "@/components/ui/Card";
 import axios from '@/api/axios'
@@ -7,23 +7,23 @@ import { useEffect, useState } from "react";
 
 import { useFetch } from '@/hooks/useFetch'
 
-import Skeleton from '@/components/ui/Skeleton'
+import data from '@/data/data'
 
 export default function ProductsList() {
 
-    const [limit, setLimit] = useState(8)
+    // const [limit, setLimit] = useState(8)
 
-    const [products, loading, error] = useFetch('/products', {
-        params: {
-            limit
-        }
-    })
+    // const [products, loading, error] = useFetch('/products', {
+    //     params: {
+    //         limit
+    //     }
+    // })
 
     return (
         <>
             {
-                products.map((product: any) => (
-                    <Card key={product.id} content={product} />
+                data.slice(0, 8).map((product: any, index) => (
+                    <Card key={index} content={product} />
                 ))
             }
         </>

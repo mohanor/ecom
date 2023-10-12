@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.inspiration .swiper-slide-active>div {
-    height: 100%;
-    transition: all 0.5s ease-in-out;
-}
 
 .shopping-cart * {
     scrollbar-width: thin;
@@ -33,4 +29,11 @@
 
 .shopping-cart *::-webkit-scrollbar-thumb:active {
     background-color: #17858A;
+}
+
+@media screen and (min-width: 768px) {
+    .inspiration .swiper-slide-active > div {
+        height: 100%;
+        transition: all 0.5s ease-in-out;
+    }
 }

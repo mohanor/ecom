@@ -101,13 +101,10 @@ export function NavBarContent({ setVisible }: NavBarContentProps) {
   )
 }
 
-
-
-
 export default function Nav() {
 
   const isMobile = useMediaQuery("only screen and (min-width : 760px)");
-  const [visible, setVisible] = useState(true)
+  const [visible, setVisible] = useState(false)
 
   return (
     <>

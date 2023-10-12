@@ -26,6 +26,8 @@ const countries = [
   { value: "morocco", label: "Morocco" },
 ];
 
+
+
 export function Select() {
 
   return (
@@ -51,7 +53,6 @@ export function Select() {
 function ProductCheckout() {
 
   const flex = "flex justify-between items-center"
-
 
   return (
     <div className="space-y-5 text-sm">
@@ -79,9 +80,29 @@ function ProductCheckout() {
 }
 
 import { motion } from "framer-motion";
-import { set } from "lodash";
 
 export default function Checkout() {
+
+
+  const [form, setForm] = useState({
+    firstName: '',
+    lastName: '',
+    companyName: '',
+    country: '',
+    streetAddress: '',
+    townCity: '',
+    zipCode: '',
+    phone: '',
+    email: '',
+    additionalInformation: '',
+  });
+
+  const handdleChange = (e: any) => {
+
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+
+  }
 
   const [directTransfer, setDirectTransfer] = useState({
     isVisible: false,
@@ -97,9 +118,8 @@ export default function Checkout() {
 
   const handleClick = (e: any) => {
 
-
     if (directTransfer.isChecked) {
-      
+
       setDirectTransfer({
         isVisible: !directTransfer.isVisible,
         isChecked: true
@@ -116,7 +136,6 @@ export default function Checkout() {
       isVisible: false,
       isChecked: false
     });
-
   };
 
   const handleClickCash = (e: any) => {
@@ -146,19 +165,17 @@ export default function Checkout() {
       <div className="flex-[.4] space-y-6">
         <h2 className="text-4xl font-medium">Billing details</h2>
         <div className="flex gap-2">
-          <Input id="first_name" label="First name" type="text" />
-          <Input id="last_name" label="Last name" type="text" />
+          <Input id="first_name" label="First name" type="text" name="firstName" value={form.firstName} onChange={handdleChange} />
+          <Input id="last_name" label="Last name" type="text" name="lastName" value={form.lastName} onChange={handdleChange} />
         </div>
 
-
-        <Input id="company_name" label="Company Name (Optional)" type="text" />
-        {/* <Select id="country" label="Country / Region" /> */}
+        <Input id="company_name" label="Company Name (Optional)" type="text" name="companyName" value={form.companyName} onChange={handdleChange} />
         <Select />
-        <Input id="street_address" label="House number and street name" type="text" />
-        <Input id="town_city" label="Town / City" type="text" />
-        <Input id="zip_code" label="ZIP code" type="text" />
-        <Input id="phone" label="Phone" type="text" />
-        <Input id="email_address" label="Email address" type="text" />
+        <Input id="street_address" label="House number and street name" type="text" name="streetAddress" value={form.streetAddress} onChange={handdleChange} />
+        <Input id="town_city" label="Town / City" type="text" name="townCity" value={form.townCity} onChange={handdleChange} />
+        <Input id="zip_code" label="ZIP code" type="text" name="zipCode" value={form.zipCode}  onChange={handdleChange} />
+        <Input id="phone" label="Phone" type="text" name="phone" value={form.phone}  onChange={handdleChange} />
+        <Input id="email_address" label="Email address" type="text" name="email" value={form.email} onChange={handdleChange} />
 
         <div>
           <label htmlFor="Additional_information" className="hidden"></label>
@@ -166,6 +183,9 @@ export default function Checkout() {
             id="Additional_information"
             className='border block font-light outline-none pl-2 py-4 rounded-md border-gray-light-500 w-full'
             placeholder="Additional information (Optional)"
+            name="additionalInformation"
+            value={form.additionalInformation}
+            onChange={handdleChange}
           />
         </div>
       </div>
@@ -175,7 +195,7 @@ export default function Checkout() {
 
         <form className="space-y-6">
           <div>
-            <label className={`block space-x-3 cursor-pointer ${ !directTransfer.isChecked ? 'text-gray-light-500' : null}`} onClick={handleClick}>
+            <label className={`block space-x-3 cursor-pointer ${!directTransfer.isChecked ? 'text-gray-light-500' : null}`} onClick={handleClick}>
               <input type="radio" name="paye" id="" className="accent-black-500" />
               <span onClick={(e) => e.stopPropagation()} className="select-none">Direct Bank Transfer</span>
             </label>
@@ -189,7 +209,7 @@ export default function Checkout() {
           </div>
 
           <div>
-            <label className={`block space-x-3 cursor-pointer ${ !delivery.isChecked ? 'text-gray-light-500' : null}`} onClick={handleClickCash}>
+            <label className={`block space-x-3 cursor-pointer ${!delivery.isChecked ? 'text-gray-light-500' : null}`} onClick={handleClickCash}>
               <input type="radio" name="paye" id="" className="accent-black-500" />
               <span onClick={(e) => e.stopPropagation()} className="select-none">Cash On Delivery</span>
             </label>

@@ -8,11 +8,13 @@ import Discount from './Discount'
 import { Like, Share, Compare } from '@/components/svgs'
 
 type Props = {
-    type: "new" | "discount",
+    type: "new" | "discount" | "none",
     discount?: number
 }
 
-function Infos({ type, discount = 0 }: Props) {
+function Infos({ type = 'none', discount = 0 }: Props) {
+
+    if (type === "none") return null
 
     if (type === 'new') {
         return (
@@ -81,16 +83,28 @@ type ContentProps = {
     discount?: number
 }
 
-function Content({ image = '/images/h.jpg', title = 'Syltherine', description = 'Stylish cafe chair', price = 2500000, discount = 350000 }: ContentProps) {
+
+import { getPlaiceholder } from 'plaiceholder'
+import fs from 'node:fs/promises'
+
+
+async function Content({ image = '/images/h.jpg', title = 'Syltherine', description = 'Stylish cafe chair', price = 2500000, discount = 350000 }: ContentProps) {
+
+
+    const buffer:any = await fs.readFile(`./public${image}`);
+    const { base64 } = await getPlaiceholder(buffer);
+
     return (
         <>
-            <div className='h-[300px] bg-white'>
+            <div className='h-[300px] bg-white relative'>
                 <Image
                     src={image}
                     alt="Picture of the author"
-                    width={500}
-                    height={500}
-                    className='w-full h-full object-contain'
+                    fill
+                    className='w-full h-full object-cover bg-center'
+                    sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                    placeholder='blur'
+                    blurDataURL={base64}
                 />
             </div>
             <div className='px-4 pt-4 pb-8 space-y-2'>
@@ -106,7 +120,7 @@ function Content({ image = '/images/h.jpg', title = 'Syltherine', description = 
 }
 
 type CardProps = {
-    type?: "new" | "discount",
+    type?: "new" | "discount" | "none",
     discount?: number,
     content: {
         image?: string,
@@ -117,7 +131,7 @@ type CardProps = {
     }
 }
 
-export default function Card({ type = 'new', discount, content }: CardProps) {
+export default function Card({ type = "none", discount, content }: CardProps) {
     return (
         <div className='relative bg-gray-lighter-500 w-full border border-black-500/[.1]'>
             <Infos type={type} discount={discount} />
