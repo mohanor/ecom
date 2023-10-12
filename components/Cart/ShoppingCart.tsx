@@ -68,7 +68,7 @@ export default function ShoppingCart({ visible, setVisible }: Props) {
                         opacity: 0,
                     }}
 
-                    ref={ref} className='w-[417px] h-screen bg-white flex flex-col justify-between overflow-hidden'>
+                    ref={ref} className='w-[80vw] sm:w-[417px] h-screen bg-white flex flex-col justify-between overflow-hidden'>
                     <div className='pt-8 flex flex-col flex-grow'>
                         <div className='px-6 flex justify-between items-center gap-16 mb-8'>
                             <h2 className='border-b border-gray-light-500 flex-grow pb-4 text-[24px] font-medium'>Shopping Cart</h2>
@@ -76,8 +76,6 @@ export default function ShoppingCart({ visible, setVisible }: Props) {
                         </div>
 
                         <div className='space-y-6 overflow-y-auto h-[calc(100vh-312px)]'>
-                            <ProductItem />
-                            <ProductItem />
                             <ProductItem />
                             <ProductItem />
                         </div>
