@@ -49,7 +49,7 @@ export default function ShoppingCart({ visible, setVisible }: Props) {
     const ref = useOutsideClick(setVisible)
 
     return (
-        <div className='shopping-cart fixed z-50 h-screen w-screen bg-[#000000]/[.5]'>
+        <div className='shopping-cart fixed z-50 h-[100dvh] w-screen bg-[#000000]/[.5]'>
             <div className='flex justify-end m-auto h-full'>
                 <motion.div
                     initial={{
@@ -68,7 +68,7 @@ export default function ShoppingCart({ visible, setVisible }: Props) {
                         opacity: 0,
                     }}
 
-                    ref={ref} className='w-[80vw] sm:w-[417px] h-screen bg-white flex flex-col justify-between overflow-hidden'>
+                    ref={ref} className='w-[80vw] sm:w-[417px] h-[100dvh] bg-white flex flex-col justify-between overflow-hidden'>
                     <div className='pt-8 flex flex-col flex-grow'>
                         <div className='px-6 flex justify-between items-center gap-16 mb-8'>
                             <h2 className='border-b border-gray-light-500 flex-grow pb-4 text-[24px] font-medium'>Shopping Cart</h2>
