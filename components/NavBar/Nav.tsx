@@ -107,18 +107,8 @@ export default function Nav() {
   const isMobile = useMediaQuery("only screen and (min-width : 760px)");
   const [visible, setVisible] = useState(false)
 
-  const [info, setInfo] = useState(true)
-
   return (
     <>
-    {
-      info && <div className='bg-red-500 text-white py-2 flex justify-center items-center gap-16'>
-        <span className='text-sm uppercase'>this only frontend you will find that lot of things are missing</span>
-        <button className='cursor-pointer px-2 py-1 text-xs rounded-full bg-red-900' onClick={() => setInfo(false)}>close</button>
-      </div>
-    }
-
-
       <AnimatePresence>
         {visible && <ShoppingCart visible={visible} setVisible={setVisible} />}
       </AnimatePresence>

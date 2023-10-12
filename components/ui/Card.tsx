@@ -103,7 +103,7 @@ async function Content({ image = '/images/h.jpg', title = 'Syltherine', descript
 
     return (
         <>
-            <div className='h-[300px] bg-white relative'>
+            <div className='h-[500px] xs:h-[300px] bg-white relative'>
                 <Image
                     src={image}
                     alt="Picture of the author"
