@@ -31,7 +31,7 @@ function Infos({ type = 'none', discount = 0 }: Props) {
     )
 }
 
-function Actions() {
+function Actions({title}: {title: string}) {
 
     const items = [
         {
@@ -39,7 +39,7 @@ function Actions() {
             icon: <Share />
         },
         {
-            name: 'Compare',
+            name: 'View',
             icon: <Compare />
         },
         {
@@ -58,16 +58,22 @@ function Actions() {
                 >
                     Add to cart
                 </Button>
-                <ul className='flex flex-wrap justify-between text-white text-sm gap-4'>
-                    {
-                        items.map(({ icon, name }) => (
-                            <li key={name} className='flex items-center gap-1 cursor-pointer'>
-                                {icon}
-                                <span className='font-semibold'>{name}</span>
-                            </li>
-                        ))
-                    }
-                </ul>
+                <div className='flex flex-wrap justify-between text-white text-sm gap-4'>
+                    <div className='flex items-center gap-1 cursor-pointer'>
+                        <Share />
+                        <span className='font-semibold'>Share</span>
+                    </div>
+            
+                        <Link href={`/shop/${title.toLowerCase().split(' ').join('-')}`} className='flex items-center gap-1 cursor-pointer'>
+                            <Compare />
+                            <span className='font-semibold'>View</span>
+                        </Link>
+            
+                    <li className='flex items-center gap-1 cursor-pointer'>
+                        <Like />
+                        <span className='font-semibold'>Like</span>
+                    </li>
+                </div>
             </div>
         </div>
     )
@@ -86,6 +92,7 @@ type ContentProps = {
 
 import { getPlaiceholder } from 'plaiceholder'
 import fs from 'node:fs/promises'
+import Link from 'next/link'
 
 
 async function Content({ image = '/images/h.jpg', title = 'Syltherine', description = 'Stylish cafe chair', price = 2500000, discount = 350000 }: ContentProps) {
@@ -124,7 +131,7 @@ type CardProps = {
     discount?: number,
     content: {
         image?: string,
-        title?: string,
+        title: string,
         description?: string,
         price?: number,
         discount?: number
@@ -136,7 +143,7 @@ export default function Card({ type = "none", discount, content }: CardProps) {
         <div className='relative bg-gray-lighter-500 w-full border border-black-500/[.1]'>
             <Infos type={type} discount={discount} />
             <Content {...content} />
-            <Actions />
+            <Actions title={content.title}/>
         </div>
     )
 }

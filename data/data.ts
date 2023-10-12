@@ -12,7 +12,7 @@ type Data  = {
 
 const data: Array<Data> =[
     {
-        title: "Syltherine",
+        title: "Syltherine hbhfvbh nvf",
         description: "Stylish cafe chair",
         image: "/images/data/1.jpg",
         price: 12,

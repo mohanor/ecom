@@ -47,19 +47,26 @@ function AddToCart() {
 
     const [added, setAdded] = useState(false)
 
+    
 
     return (
         <>
-        {
-            added ? (
-                <button className='capitalize border  py-3 px-2 xl:px-4 rounded-lg'>
-                    Add to cart
-                </button>
-            ) : 
-                <button className='capitalize border  py-3 px-2 xl:px-4 rounded-lg bg-green-dark-500 text-white'>
-                    Added to cart
-                </button>
-        }
+            {
+                added ? (
+                    <button
+                        className='capitalize border  py-3 px-2 xl:px-4 rounded-lg bg-green-dark-500 text-white'
+                        onClick={() => setAdded(false)}
+                    >
+                        Added to cart
+                    </button>
+                ) :
+                    <button
+                        className='capitalize border  py-3 px-2 xl:px-4 rounded-lg'
+                        onClick={() => setAdded(true)}
+                    >
+                        Add to cart
+                    </button>
+            }
 
         </>
     )
@@ -111,7 +118,7 @@ function Actions() {
 
     return (
         <div className='flex flex-col xs:flex-row text-sm xl:text-base gap-2 xl:gap-8'>
-            <Quantity  quantity={quantity} setQuantity={setQuantity}/>
+            <Quantity quantity={quantity} setQuantity={setQuantity} />
             <AddToCart />
             <Compare />
         </div>

@@ -9,7 +9,11 @@ import { useFetch } from '@/hooks/useFetch'
 
 import data from '@/data/data'
 
-export default function ProductsList() {
+type Props = {
+    shop?: boolean
+}
+
+export default function ProductsList({ shop = false }: Props) {
 
     // const [limit, setLimit] = useState(8)
 
@@ -21,7 +25,14 @@ export default function ProductsList() {
 
     return (
         <>
-            {
+            {shop ?
+            
+                data.slice(0, 16).map((product: any, index) => (
+                    <Card key={index} content={product} />
+                ))
+            
+            :
+            
                 data.slice(0, 8).map((product: any, index) => (
                     <Card key={index} content={product} />
                 ))
@@ -29,3 +40,6 @@ export default function ProductsList() {
         </>
     )
 }
+
+
+
