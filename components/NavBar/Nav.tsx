@@ -78,7 +78,7 @@ import { AnimatePresence } from 'framer-motion';
 export function NavBarContent({ setVisible }: NavBarContentProps) {
 
   return (
-    <div className='flex items-center gap-4 xs:gap-8 text-lg xs:text-xl'>
+    <div className='flex items-center gap-8 text-xl'>
 
       <Tooltip content='profile'>
         <button className='outline-none'><User /></button>
@@ -114,8 +114,11 @@ export default function Nav() {
       </AnimatePresence>
       <NavbarContainer>
         <Brand />
-        {isMobile && <NavBarLinks />}
-        <NavBarContent setVisible={setVisible} />
+        {isMobile &&
+          <>
+            <NavBarLinks />
+            <NavBarContent setVisible={setVisible} />
+          </>}
         {!isMobile && <Dropdown />}
       </NavbarContainer>
     </>
