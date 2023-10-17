@@ -13,7 +13,7 @@ function CartTrotals() {
 
                 <div className='flex justify-between items-center'>
                     <span >Subtotal</span>
-                    <span className='text-green-dark-500 text-lg'>Rs. 250,000.00</span>
+                    <span className='text-green-dark-900 font-bold text-lg'>Rs. 250,000.00</span>
                 </div>
 
                 <Link href='/checkout' className='border border-black-900 py-4 lg:py-5 rounded-xl duration-300 hover:bg-yellow-dark-600 font-normal text-lg text-center'>

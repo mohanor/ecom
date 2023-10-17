@@ -15,7 +15,7 @@ function Item({ title, description, icon }: ItemProps) {
             </div>
             <div className=''>
                 <h2 className='font-semibold text-lg'>{title}</h2>
-                <p className='text-gray-dark-500 text-md'>{description}</p>
+                <p className='text-gray-dark-700 text-md'>{description}</p>
             </div>
         </div>
     )
