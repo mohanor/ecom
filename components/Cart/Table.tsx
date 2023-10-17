@@ -4,6 +4,9 @@ import Image from 'next/image'
 import { useState } from 'react'
 
 import { Delete } from '../svgs'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
+
+
 
 function Tr() {
 
@@ -24,8 +27,9 @@ function Tr() {
                     alt='Picture of the author'
                     width={80}
                     height={80}
+                    className='flex-shrink-0'
                 />
-                <span>Asgaard sofa</span>
+                <span className='line-clamp-1'>Asgaard sofa sofa sofa sofa sofa sofa sofa</span>
             </div>
             <div className='col-span-2 grid place-content-center'>
                 <span>Rs. 250,000.00</span>
@@ -66,4 +70,74 @@ export default function Table() {
             </div>
         </div>
     )
+}
+
+type DeleteQuantityProps = {
+    quantity: number,
+    setQuantity: (value: number) => void,
+    className?: string
+}
+
+function DeleteQuantity({ quantity, setQuantity, className='' }: DeleteQuantityProps) {
+
+    return (
+        <div className={`flex gap-4 ${className}`}>
+            <div className='flex items-center bg-gray-light-200 gap-4 text-xl  font-semibold rounded-md overflow-hidden border border-gray-light-500'>
+                <button
+                    className='px-3 py-1 bg-gray-light-300 border-r border-gray-light-500'
+                    onClick={() => setQuantity(quantity - 1)}
+                >-</button>
+                <span className='font-normal '>{quantity}</span>
+                <button
+                    className='px-3 py-1 bg-gray-light-300 border-l border-gray-light-500'
+                    onClick={() => setQuantity(quantity + 1)}
+                >+</button>
+            </div>
+            <button className='rounded-md text-sm px-2 py-1 border border-gray-light-500 bg-gray-light-300'>Delete</button>
+        </div>
+    )
+
+}
+
+
+function MobileItem() {
+
+    const [quantity, setQuantity] = useState(1)
+    const xtraSmall = useMediaQuery('(min-width: 400px)')
+
+    return (
+        <div className='px-8 py-4 '>
+            <div className='flex items-start gap-8'>
+                <div className='relative h-[120px] w-[120px] rounded-2xl flex-shrink-0 overflow-hidden'>
+                    <Image
+                        src='/images/postitem.jpg'
+                        alt='Picture of the author'
+                        fill
+                        className='w-full h-full object-cover'
+                        sizes='(max-width: 768px) 100vw'
+                    />
+                </div>
+                <div className='flex flex-col gap-2'>
+                    <span className='text-lg line-clamp-2'>Asgaard sofa Asgaard sofa Asgaard sofa Asgaard sofaAsgaard sofaAsgaard sofaAsgaard sofaAsgaard sofaAsgaard sofaAsgaard sofaAsgaard sofaAsgaard sofaAsgaard sofaAsgaard sofa</span>
+                    <span className='font-bold'>Rs. 250,000.00</span>
+                    {xtraSmall && <DeleteQuantity setQuantity={setQuantity} quantity={quantity} />}
+                </div>
+            </div>
+
+            {!xtraSmall && <DeleteQuantity setQuantity={setQuantity} quantity={quantity} className="mt-4" />}
+
+        </div>
+    )
+}
+
+export function MobileTable() {
+
+    return (
+        <div className='space-y-3'>
+            <MobileItem />
+            <MobileItem />
+            <MobileItem />
+        </div>
+    )
+
 }

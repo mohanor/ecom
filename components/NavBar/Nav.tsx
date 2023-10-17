@@ -118,7 +118,8 @@ export default function Nav() {
           <>
             <NavBarLinks />
             <NavBarContent setVisible={setVisible} />
-          </>}
+          </>
+        }
         {!isMobile && <Dropdown />}
       </NavbarContainer>
     </>

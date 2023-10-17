@@ -31,6 +31,16 @@
     background-color: #17858A;
 }
 
+
+.bg-header {
+    background-image: url('/images/cover/cover.webp');
+    background-repeat: no-repeat;
+}
+
+/* backgroundImage: 'url(/images/cover.webp)' */
+
+
+
 @media screen and (min-width: 768px) {
     .inspiration .swiper-slide-active > div {
         height: 100%;

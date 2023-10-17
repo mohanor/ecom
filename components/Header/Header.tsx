@@ -2,13 +2,9 @@ import React from 'react'
 
 import Button from '../ui/Button'
 
-// items-end justify-end             py-24 px-12
 export default function Header() {
   return (
-    <div
-      style={{ backgroundImage: 'url(/images/cover.jpg)' }}
-      className='h-[700px] flex px-2 items-center sm:items-end justify-center bg-cover bg-center py-24 xs:px-12'
-    >
+    <div className='bg-header flex px-2 items-center sm:items-end justify-center bg-cover bg-center py-24 xs:px-12'>
       <div className='w-full max-w-7xl flex items-end justify-end'>
         <div className='bg-yellow-dark-500 w-fit p-8'>
           <div className='mb-6 sm:mb-10'>
