@@ -31,7 +31,7 @@ export default function Footer() {
             <div className='col-span-12 sm:col-span-4'>
                 <h2 className='text-gray-dark-900 font-semibold text-lg mb-6 md:mb-12 capitalize'>Newsletter</h2>
                 <form className='space-y-4 xs:space-y-0 space-x-2 sm:space-x-0 spc:space-x-2'>
-                    <input type="text" placeholder='Enter Your Email Address' className='text-sm font-light border-b sm:w-[200px] border-black-900 outline-none pb-1 text-gray-dark-500'/>
+                    <input type="text" placeholder='Enter Your Email Address' className='text-sm font-light border-b sm:w-[200px] border-black-900 outline-none pb-1 text-gray-dark-700'/>
                     <button className='uppercase text-sm border-b border-black-900 pb-1'>Subscribe</button>
                 </form>
             </div>

@@ -9,6 +9,7 @@ export default function App() {
 
     <Button
       variant="bordered"
+      aria-label="Menu"
     >
       <Menu className="text-3xl" />
     </Button>
